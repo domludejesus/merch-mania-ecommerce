@@ -1,11 +1,14 @@
 import styled from "styled-components"
 import { ArrowRightOutlined, ArrowLeftOutlined } from '@material-ui/icons'
+import { useState } from "react"
+import { sliderItems } from "../data"
 
 const Container = styled.div`
     width: 100%; 
     height: 100vh; 
     display: flex; 
     position: relative; 
+    overflow: hidden; 
 `
 
 const Arrow = styled.div`
@@ -24,63 +27,83 @@ const Arrow = styled.div`
     margin: auto; 
     cursor: pointer; 
     opacity: 0.5; 
+    z-index: 2; 
+
 `
 const Wrapper = styled.div`
     height: 100%; 
+    display: flex;
+    transition: all 1.5s ease;  
+    transform: translateX(${(props) => props.slideIndex * -100}vw); 
+
 `
+{/* passing props for slide index to shift content on x axis */ }
+{/* translating onto the X axis */}
 const Slide = styled.div`
-    width: 100vw; 
+    width: 100vw;
     height: 100vh;
-    display: flex; 
-    align-items: center; 
-    
+    display: flex;
+    align-items: center;
+    background-color: #${props=>props.bg};
+
 `
 const ImgContainer = styled.div`
-    height: 100%; 
-    flex: 1; 
+    height: 100%;
+    flex: 1;
 `
 const Image = styled.img`
-    height: 80%; 
+    height: 80%;
 `
-const InfoContainer = styled.div` 
-    flex: 1; 
-    padding: 50px; 
+const InfoContainer = styled.div`
+    flex: 1;
+    padding: 50px;
 `
 const Title = styled.h1`
-    font-size: 80px; 
+    font-size: 80px;
 `
 const Desc = styled.p`
-    margin: 50px 0px; 
-    font-size: 20px; 
-    font-weight: 500; 
-    letter-spacing 3px; 
+    margin: 50px 0px;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing 3px;
 `
 const Button = styled.button`
-    padding: 10px; 
-    font-size: 20px; 
-    background-color: transparent; 
-    cursor: pointer; 
+    padding: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    cursor: pointer;
 `
 
 const Slider = () => {
+        const [slideIndex, setSlideIndex] = useState(0); 
+        const handleClick = (direction) => {
+            
+            if(direction==="left") {
+                setSlideIndex(slideIndex > 0 ? slideIndex-1 : 2);  {/* if slide index greater then 0 then -1 and go to slide 2*/}
+            } else {
+                setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0 ); {/* if slide index less then 2 then +1 and go to slide 0*/}
+            }
+        }; 
   return (
-    <Container> 
-        <Arrow direction="left"> 
-              <ArrowLeftOutlined /> 
+    <Container>
+        <Arrow direction="left" onClick={()=> handleClick("left")}>
+              <ArrowLeftOutlined />
         </Arrow>
-        <Wrapper>
-            <Slide>
-                <ImgContainer>
-                      <Image src="https://images.unsplash.com/photo-1651087319658-a1923f85551f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80"/> {/* Add anime merchandise photo here */}
-                </ImgContainer>
-                <InfoContainer> 
-                    <Title> Winter Merch Sale  </Title>
-                    <Desc> ACT FAST NOW! GET 30% OFF FOR NEW ARRIVALS </Desc>
-                    <Button> VIEW NOW </Button>
-                </InfoContainer>
-            </Slide>
+          <Wrapper slideIndex={slideIndex}> {/* Slider data in data.js */}
+            {sliderItems.map((item) => (
+                <Slide bg={item.bg}>
+                    <ImgContainer>
+                        <Image src= {item.img}/> 
+                    </ImgContainer>
+                    <InfoContainer> 
+                        <Title> {item.title} </Title>
+                        <Desc> {item.desc} </Desc>
+                        <Button> VIEW NOW </Button>
+                    </InfoContainer>
+                </Slide>
+            ))}
         </Wrapper>
-          <Arrow direction="right">
+          <Arrow direction="right" onClick={() => handleClick("right")}>
               <ArrowRightOutlined />
           </Arrow>
     </Container>
