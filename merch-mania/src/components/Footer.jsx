@@ -1,4 +1,4 @@
-import { Facebook, Instagram, Pinterest, Twitter } from "@material-ui/icons";
+import { Facebook, Instagram, MailOutline, Phone, Pinterest, Twitter, Room } from "@material-ui/icons";
 import styled from "styled-components"; 
 
 const Container = styled.div`
@@ -35,17 +35,38 @@ const Center = styled.div`
     padding: 20px; 
 `
 const Title= styled.h3`
+    margin-bottom: 30px; 
 `
 
 const List = styled.ul`
+    margin: 0; 
+    padding: 0; 
+    list-style: none; 
+    display: flex; 
+    flex-wrap: wrap;  
 `
 const ListItem = styled.li`
+    width: 50%; 
+    margin-bottom: 10px; 
 `
 
 
 const Right = styled.div`
     flex: 1;
     padding: 20px;  
+`
+
+const ContactItem = styled.div`
+    margin-bottom: 20px; 
+    display: flex; 
+    align-items: center; 
+
+`
+
+const Payment = styled.img`
+    width: 50%; 
+
+
 `
 
 const Footer = () => {
@@ -87,7 +108,20 @@ const Footer = () => {
                   <ListItem> Terms  </ListItem>
                 </List>
           </Center>
-          <Right> </Right>
+          <Right>
+            <Title> Contact </Title>
+            <ContactItem> 
+                <Room style={{marginRight: "10px"}}/> North East, US 
+            </ContactItem>
+            <ContactItem> 
+                <Phone style={{ marginRight: "10px" }} /> (555)555-5555
+            </ContactItem>
+            <ContactItem> 
+                <MailOutline style={{ marginRight: "10px" }} /> domludejesus@gmail.com 
+            </ContactItem> 
+            <Payment src="../../../assets/payment-image.png" />
+            
+          </Right>
         </Container>
   )
 }
