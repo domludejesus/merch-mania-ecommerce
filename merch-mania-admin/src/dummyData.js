@@ -48,3 +48,86 @@ export const userData = [
         "Active User": 4300,
     },
 ];
+
+export const userRows = [
+  { 
+    id: 1,
+    username: 'Jeff Burns',
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    email: "jeffb@gmail.com", 
+    status: "active", 
+    transaction: "$200.00" 
+  },
+  {
+    id: 2,
+    username: 'Jeff Burns',
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    email: "jeffb@gmail.com",
+    status: "active",
+    transaction: "$200.00"
+  },
+  {
+    id: 3,
+    username: 'Jeff Burns',
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    email: "jeffb@gmail.com",
+    status: "active",
+    transaction: "$200.00"
+  },
+  {
+    id: 4,
+    username: 'Jeff Burns',
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    email: "jeffb@gmail.com",
+    status: "active",
+    transaction: "$200.00"
+  },
+  {
+    id: 5,
+    username: 'Jeff Burns',
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    email: "jeffb@gmail.com",
+    status: "active",
+    transaction: "$200.00"
+  },
+  {
+    id: 6,
+    username: 'Jeff Burns',
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    email: "jeffb@gmail.com",
+    status: "active",
+    transaction: "$200.00"
+  },
+  {
+    id: 7,
+    username: 'Jeff Burns',
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    email: "jeffb@gmail.com",
+    status: "active",
+    transaction: "$200.00"
+  },
+  {
+    id: 8,
+    username: 'Jeff Burns',
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    email: "jeffb@gmail.com",
+    status: "active",
+    transaction: "$200.00"
+  },
+  {
+    id: 9,
+    username: 'Jeff Burns',
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    email: "jeffb@gmail.com",
+    status: "active",
+    transaction: "$200.00"
+  },
+  {
+    id: 10,
+    username: 'Jeff Burns',
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80",
+    email: "jeffb@gmail.com",
+    status: "active",
+    transaction: "$200.00"
+  },
+];
