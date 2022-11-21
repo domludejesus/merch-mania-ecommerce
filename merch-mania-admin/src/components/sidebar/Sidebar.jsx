@@ -1,4 +1,5 @@
 import { BarChartOutlined, BusinessCenterOutlined, FeedbackOutlined, LineStyle, MailOutlineOutlined, Money, PersonOutline, QuestionAnswerOutlined, StorefrontOutlined, Timeline, TrendingUp } from "@material-ui/icons"
+import { Link } from "react-router-dom"
 import "./sidebar.css"
 
 const Sidebar = () => {
@@ -25,14 +26,18 @@ const Sidebar = () => {
               <div className="sidebarMenu">
                   <h3 className="sidebarTitle"> Quick Menu</h3>
                   <ul className="sidebarList">
+                    <Link to="/users" className="link">
                       <li className="sidebarListItem">
                           <PersonOutline className="sidebarIcon" />
                           Users
                       </li>
+                    </Link>
+                    <Link to="products" className="link">
                       <li className="sidebarListItem">
                           <StorefrontOutlined className="sidebarIcon" />
                           Products
                       </li>
+                    </Link>
                       <li className="sidebarListItem">
                           <Money className="sidebarIcon" />
                           Transactions
