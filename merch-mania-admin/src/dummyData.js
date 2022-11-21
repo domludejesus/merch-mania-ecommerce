@@ -131,3 +131,87 @@ export const userRows = [
     transaction: "$200.00"
   },
 ];
+
+export const productRows = [
+  {
+    id: 1,
+    name: 'Graphic Design Tee',
+    img: "https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    stock: 123,
+    status: "active",
+    price: "$200.00"
+  },
+  {
+    id: 2,
+    name: 'Graphic Design Tee',
+    img: "https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    stock: 123,
+    status: "active",
+    price: "$200.00"
+  },
+  {
+    id: 3,
+    name: 'Graphic Design Tee',
+    img: "https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    stock: 123,
+    status: "active",
+    price: "$200.00"
+  },
+  {
+    id: 4,
+    name: 'Graphic Design Tee',
+    img: "https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    stock: 123,
+    status: "active",
+    price: "$200.00"
+  },
+  {
+    id: 5,
+    name: 'Graphic Design Tee',
+    img: "https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    stock: 123,
+    status: "active",
+    price: "$200.00"
+  },
+  {
+    id: 6,
+    name: 'Graphic Design Tee',
+    img: "https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    stock: 123,
+    status: "active",
+    price: "$200.00"
+  },
+  {
+    id: 7,
+    name: 'Graphic Design Tee',
+    img: "https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    stock: 123,
+    status: "active",
+    price: "$200.00"
+  },
+  {
+    id: 8,
+    name: 'Graphic Design Tee',
+    img: "https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    stock: 123,
+    status: "active",
+    price: "$200.00"
+  },
+  {
+    id: 9,
+    name: 'Graphic Design Tee',
+    img: "https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    stock: 123,
+    status: "active",
+    transaction: "$200.00"
+  },
+  {
+    id: 10,
+    name: 'Graphic Design Tee',
+    img: "https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80",
+    stock: 123,
+    status: "active",
+    price: "$200.00"
+  },
+];
+
