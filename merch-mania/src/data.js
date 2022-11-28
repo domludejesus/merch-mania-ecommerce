@@ -27,16 +27,19 @@ export const categories = [
         id: 1, 
         img: "https://images.unsplash.com/photo-1587930637375-e07841ac7dde?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&q=80", 
         title: "Shirt Style", 
+        cat: "tshirt"
     }, 
     {
         id: 1,
         img: "https://images.unsplash.com/photo-1545312981-de7f4d7cb816?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
         title: "Lounge Wear",
+        cat: "pants"
     },
     {
         id: 1,
         img: "https://images.unsplash.com/photo-1576993537667-c6d2386f90a2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80",
         title: "Light Jackets",
+        cat: "jacket"
     }
 ]
 
