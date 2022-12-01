@@ -5,6 +5,9 @@ import Newsletter from "../components/Newsletter"
 import Footer from "../components/Footer"
 import { Add, Remove } from "@material-ui/icons"
 import { mobile } from "../responsive"
+import { useLocation } from "react-router-dom"
+import { useState, useEffect } from "react"
+import { publicRequest } from "../requestMethods"
 
 const Container = styled.div`
 
@@ -107,40 +110,48 @@ const Button = styled.button`
 
 
 const Product = () => {
+    const location = useLocation();
+    const id = (location.pathname.split("/")[2]);
+    const [product,setProduct] = useState({}); 
+
+    useEffect(() => {
+        const getProduct = async ()=> {
+            try {
+                const res = await publicRequest.get("/products/find/"+id)
+                setProduct(res.data)
+            }   catch{}
+        };
+        getProduct()
+    }, [id]);
+
   return (
     <Container>
         <Navbar/>
         <Announcement/>
         <Wrapper>
             <ImgContainer>
-                  <Image src="https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80"/>
+                  <Image src={product.img}/>
             </ImgContainer>
             <InfoContainer>
-                <Title> Sweat Pants </Title>
-                <Desc> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Qui, eligendi,
-                     fugit saepe quidem nostrum molestiae quae error enim earum accusantium consectetur,
-                     vitae amet. Inventore reprehenderit laudantium facere voluptas, hic atque. 
-                </Desc>
-                <Price>$ 45</Price>
-                <FilterContainer>
-                    <Filter> 
-                        <FilterTitle> Color </FilterTitle>
-                        <FilterColor color="black"/>
-                        <FilterColor color="darkblue" />
-                        <FilterColor color="gray" />
-                    </Filter>
-                    <Filter>
-                        <FilterTitle> Size </FilterTitle>
-                        <FilterSize>
-                            <FilterSizeOption> XS </FilterSizeOption>
-                            <FilterSizeOption> S </FilterSizeOption>
-                            <FilterSizeOption> M </FilterSizeOption>
-                            <FilterSizeOption> L </FilterSizeOption>
-                            <FilterSizeOption> XL </FilterSizeOption>
-                            <FilterSizeOption> XXL </FilterSizeOption>
-                    </FilterSize>
-                    </Filter>
-                </FilterContainer>
+                <Title> {product.title} </Title>
+                <Desc> {product.desc} </Desc>
+                <Price>$ {product.price} </Price>
+                  <FilterContainer>
+                      <Filter>
+                          <FilterTitle>Color</FilterTitle>
+                          {product.color?.map((c) => (
+                              <FilterColor color={c} key={c} /> // filtering through colors on database items 
+                          ))}
+                      </Filter>
+                      <Filter>
+                          <FilterTitle>Size</FilterTitle>
+                          <FilterSize>
+                              {product.size?.map((s) => (
+                                  <FilterSizeOption key={s}>{s}</FilterSizeOption> //filtering sizes 
+                              ))}
+                          </FilterSize>
+                      </Filter>
+                  </FilterContainer>
                 <AddContainer>
                     <AmountContainer>
                         <Remove />
