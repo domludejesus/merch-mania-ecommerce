@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { userRequest } from "../../requestMethods";
 import "./widgetLg.css"
-import { format } from "timeago.js"
+import { format } from "timeago.js" // timeago causing issues with errors 
 
 export default function WidgetLg() {
     const [orders, setOrders] = useState([])
