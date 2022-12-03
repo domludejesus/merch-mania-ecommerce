@@ -5,7 +5,13 @@ import Footer from '../components/Footer';
 import { Add, Remove } from "@material-ui/icons"
 import { mobile } from "../responsive"
 import { useSelector } from "react-redux";
+import StripeCheckout  from "react-stripe-checkout"
+import { useState, useEffect } from "react";
+import { userRequest } from "../requestMethods";
+import { useNavigate } from "react-router"; 
 
+
+const KEY = "pk_test_51M8pjxAPGjBMLo14jL7BsV9qurPR4JdgAslFjxnctxjnFiRtmnTcBzd7Cd68iQaUTdHtw54guLzjoq6H7yWnI4sb00LJ0jpCEN"  //process.env.REACT_APP_STRIPE; not working with legacy version 
 
 const Container = styled.div`
 
@@ -152,7 +158,28 @@ const Button = styled.button`
 
 
 const Cart = () => {
-    const cart = useSelector(state=>state.cart)
+    const cart = useSelector(state=>state.cart); 
+    const [stripeToken, setStripeToken] = useState(null); 
+    const navigate = useNavigate(); 
+
+    const onToken = (token)=> {
+        setStripeToken(token)
+    }
+   // console.log(stripeToken) verify token information 
+
+    useEffect(()=> {
+      const makeRequest = async ()=> {
+      try {
+        const res = await userRequest.post("/checkout/payment", {
+          tokenId: stripeToken.id, 
+          amount: 400 // cart.total * 100,  // after this res go to order page    
+        }); 
+        navigate.push("/success", { data: res.data })
+      }catch {}  
+      }; 
+      stripeToken && makeRequest(); 
+    },[stripeToken, cart.total, navigate])
+
   return (
     <Container>
         <Navbar />
@@ -209,7 +236,18 @@ const Cart = () => {
                         <SummaryItemText> Total </SummaryItemText>
                         <SummaryItemPrice>$ {cart.total} </SummaryItemPrice>   
                     </SummaryItem> 
-                    <Button> CHECKOUT NOW </Button> 
+                    <StripeCheckout
+                        name="merch mania"
+                        image="https://images.unsplash.com/photo-1623859763838-a304cbfd4901?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=150&q=150"
+                        billingAddress
+                        shippingAddress
+                        description={`Your total is $${cart.total}`}
+                        amount={cart.total*100}
+                        token={onToken}
+                        stripeKey={KEY}
+                    >
+                        <Button> CHECKOUT NOW </Button> 
+                    </StripeCheckout>
                 </Summary>    
             </Bottom>
         </Wrapper> 
