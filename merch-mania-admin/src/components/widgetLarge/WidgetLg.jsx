@@ -35,20 +35,20 @@ export default function WidgetLg() {
             {orders.map(order=>(
 
             <tbody>
-                <tr className="widgetLgTr">
-                    <td className="widgetLgUser">
-                        <img 
-                            src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
-                            alt="" 
-                            className="widgetLgImg" 
-                        />
-                        <span className="widgetLgName"> {order.userId} </span>
-                    </td>
-                    <td className="widgetLgDate"> {format(order.createdAt)}</td>
-                    <td className="widgetLgAmount">$ {order.amount} </td>
-                    <td className="widgetLgStatus"> <Button type={order.status} /></td>
+            <tr className="widgetLgTr">
+                <td className="widgetLgUser">
+                    <img 
+                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
+                        alt="" 
+                        className="widgetLgImg" 
+                    />
+                    <span className="widgetLgName"> {order.userId} </span>
+                </td>
+                <td className="widgetLgDate"> {format(order.createdAt)}</td>
+                <td className="widgetLgAmount">$ {order.amount} </td>
+                <td className="widgetLgStatus"> <Button type={order.status} /></td>
 
-                </tr>
+            </tr>
             </tbody>
         ))}
         </table>
