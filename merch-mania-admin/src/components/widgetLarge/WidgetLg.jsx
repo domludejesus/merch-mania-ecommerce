@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
+import { userRequest } from "../../requestMethods";
 import "./widgetLg.css"
+import { format } from "timeago.js"
 
 export default function WidgetLg() {
+    const [orders, setOrders] = useState([])
+
+    useEffect(() => {
+        const getOrders = async () => {
+            try {
+                const res = await userRequest.get("orders");
+                setOrders(res.data);
+            } catch { }
+        };
+        getOrders();
+    }, []);
+
     const Button = ({type}) => {
         return <button className ={"widgetLgButton " + type}>{type} </button>
     }
@@ -15,6 +30,9 @@ export default function WidgetLg() {
                 <th className="widgetLgTh"> Amount</th>
                 <th className="widgetLgTh"> Status</th>
             </tr>
+            {orders.map(order=>(
+
+            
             <tr className="widgetLgTr">
                 <td className="widgetLgUser">
                     <img 
@@ -22,55 +40,14 @@ export default function WidgetLg() {
                         alt="" 
                         className="widgetLgImg" 
                     />
-                    <span className="widgetLgName"> Marry Dudely</span>
+                    <span className="widgetLgName"> {order.userId} </span>
                 </td>
-                <td className="widgetLgDate"> October 11 2022</td>
-                <td className="widgetLgAmount"> 200.00 </td>
-                <td className="widgetLgStatus"> <Button type="Approved" /></td>
+                <td className="widgetLgDate"> {format(order.createdAt)}</td>
+                <td className="widgetLgAmount">$ {order.amount} </td>
+                <td className="widgetLgStatus"> <Button type={order.status} /></td>
 
             </tr>
-            <tr className="widgetLgTr">
-                <td className="widgetLgUser">
-                    <img 
-                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
-                        alt="" 
-                        className="widgetLgImg" 
-                    />
-                    <span className="widgetLgName"> Marry Dudely</span>
-                </td>
-                <td className="widgetLgDate"> October 11 2022</td>
-                <td className="widgetLgAmount"> 200.00 </td>
-                <td className="widgetLgStatus"> <Button type="Declined" /></td>
-
-            </tr>
-            <tr className="widgetLgTr">
-                <td className="widgetLgUser">
-                    <img 
-                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
-                        alt="" 
-                        className="widgetLgImg" 
-                    />
-                    <span className="widgetLgName"> Marry Dudely</span>
-                </td>
-                <td className="widgetLgDate"> October 11 2022</td>
-                <td className="widgetLgAmount"> 200.00 </td>
-                <td className="widgetLgStatus"> <Button type="Pending" /></td>
-
-            </tr>
-            <tr className="widgetLgTr">
-                <td className="widgetLgUser">
-                    <img 
-                        src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=300&q=80"
-                        alt="" 
-                        className="widgetLgImg" 
-                    />
-                    <span className="widgetLgName"> Marry Dudely</span>
-                </td>
-                <td className="widgetLgDate"> October 11 2022</td>
-                <td className="widgetLgAmount"> 200.00 </td>
-                <td className="widgetLgStatus"> <Button type="Approved" /></td>
-
-            </tr>
+        ))}
         </table>
     </div>
   )

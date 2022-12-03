@@ -15,6 +15,7 @@
     height: 40px; 
     border-radius: 50%;
     object-fit: cover;
+    padding-left: 20px; 
 }
 
 .widgetSmList {

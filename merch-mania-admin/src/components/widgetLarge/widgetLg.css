@@ -43,15 +43,15 @@
     border-radius: 10px; 
 }
 
-.widgetLgButton.Approved {
+.widgetLgButton.approved {
     background-color: lightgreen;
     color: green;  
 }
-.widgetLgButton.Pending {
+.widgetLgButton.pending {
     background-color: lightyellow;
     color: rgb(164, 164, 5); 
 }
-.widgetLgButton.Declined {
+.widgetLgButton.declined {
     background-color: rgb(255, 129, 129);
     color: red; 
 }
