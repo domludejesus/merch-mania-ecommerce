@@ -9,23 +9,25 @@ import NewUser from "./pages/newPage/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
     <Router>
-      <Topbar/>
-      <div className="container">
-          <Sidebar />
-          <Routes>
-            <Route path="/" element={<Home/>} />
-            <Route path="/users" element={<UserList />} />
-            <Route path="/user/:userId" element={<User />} />
-            <Route path="/newUser" element={<NewUser />} />
-            <Route path="/products" element={<ProductList />} />
-            <Route path="/product/:productsId" element={<Product />} />
-            <Route path="/newproduct" element={<NewProduct />} />
-          </Routes>
-      </div>
+          <Topbar/>
+            <div className="container">
+                <Sidebar />
+                <Routes>
+                  <Route path="/" element={<Home/>} />
+                  <Route path="/users" element={<UserList />} />
+                  <Route path="/user/:userId" element={<User />} />
+                  <Route path="/newUser" element={<NewUser />} />
+                  <Route path="/products" element={<ProductList />} />
+                  <Route path="/product/:productsId" element={<Product />} />
+                  <Route path="/newproduct" element={<NewProduct />} />
+                <Route path="/login" element={<Login />} />
+                </Routes>      
+            </div>   
     </Router>
   );
 }
