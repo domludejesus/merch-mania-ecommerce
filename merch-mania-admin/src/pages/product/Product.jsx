@@ -1,10 +1,57 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import Chart from "../../components/chart/Chart"
 import "./product.css"
-import { productData } from "../../dummyData"
+//import { productData } from "../../dummyData"
 import { Publish } from "@material-ui/icons"
+import { useSelector } from "react-redux"
+import { useEffect, useMemo, useState } from "react"
+import { userRequest } from "../../requestMethods"
 
 export default function Product() {
+    const location = useLocation(); 
+    const productId = location.pathname.split("/")[2]; 
+    const [pStats,setPStats] = useState([])
+
+    const product = useSelector((state) => state.product.products.find((product) => product._id === productId)); // if it matches the product id from our products then correct 
+    
+    const MONTHS = useMemo(
+        () => [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec",
+        ],
+        []
+    ); 
+
+    useEffect(() => {
+        const getStats = async () => {
+            try {
+                const res = await userRequest.get("/orders/income?pid=" + productId); 
+                const list = res.data.sort((a,b) => {
+                    return a._id - b._id
+                })
+                list.map((item) =>
+                    setPStats((prev) => [
+                        ...prev,
+                        { name: MONTHS[item._id - 1], Sales: item.total }, // take current month and subtract 1 to get the previous month from data 
+                    ])
+                )
+            } catch (err) { 
+                console.log(err); 
+            }
+        }
+        getStats();
+    }, [productId, MONTHS]); 
+
   return (
     <div className ="product">
         <div className="productTitleContainer">
@@ -15,29 +62,25 @@ export default function Product() {
         </div>
         <div className="productTop">
             <div className="productTopLeft">
-                <Chart data={productData} dataKey="Sales" title="Sales Performance" />
+                <Chart data={pStats} dataKey="Sales" title="Sales Performance" />
             </div>
             <div className="productTopRight"> 
                 <div className="productInfoTop">
-                    <img src="https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="" className="productInfoImg" />
-                    <span className="productName"> Graphic Design Tee </span>
+                    <img src={product.img} alt="" className="productInfoImg" />
+                    <span className="productName"> {product.title} </span>
                 </div>
                 <div className="productInfoBottom">
                     <div className="productInfoItem">
                         <span className="productInfoKey"> id:</span>
-                        <span className="productInfoValue">123</span>
+                        <span className="productInfoValue">{product._id}</span>
                     </div>
                     <div className="productInfoItem">
                         <span className="productInfoKey"> sales:</span>
                         <span className="productInfoValue">4123</span>
                     </div>
                     <div className="productInfoItem">
-                        <span className="productInfoKey"> active:</span>
-                        <span className="productInfoValue">yes</span>
-                    </div>
-                    <div className="productInfoItem">
                         <span className="productInfoKey"> in stock:</span>
-                        <span className="productInfoValue">yes</span>
+                        <span className="productInfoValue">{product.inStock}</span>
                     </div>
                 </div>
             </div>
@@ -46,21 +89,20 @@ export default function Product() {
             <form className="productForm">
                 <div className="productFormLeft">
                     <label> Product Name</label>
-                    <input type="text"  placeholder="Graphic Design Tee"/>
+                    <input type="text"  placeholder={product.title}/>
+                    <label> Product Description</label>
+                    <input type="text"  placeholder={product.desc}/>
+                    <label> Price </label>
+                    <input type="text"  placeholder={product.price}/>
                     <label> In Stock</label>
                     <select name="inStock" id="idStock"> 
-                        <option value="yes"> Yes</option>
-                        <option value="no"> No</option>
+                        <option value="true"> Yes</option>
+                        <option value="false"> No</option>
                     </select>
-                      <label> Active</label>
-                      <select name="active" id="active">
-                          <option value="yes"> Yes</option>
-                          <option value="no"> No</option>
-                      </select>
                 </div>
                 <div className="productFormRight">
                     <div className="productUpload">
-                          <img src="https://images.unsplash.com/photo-1666153184621-bc6445e3568d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=80" alt="" className="productUploadImg" />
+                          <img src={product.img} alt="" className="productUploadImg" />
                           <label for="file">
                             <Publish />
                           </label>
