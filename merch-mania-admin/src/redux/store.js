@@ -2,6 +2,7 @@
 
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import userReducer from "./userRedux";
+import productReducer from "./productRedux"
 
 import {
     persistReducer, // redux toolkit Redux-persist 
@@ -21,7 +22,7 @@ const persistConfig = {
     storage,
 };
 
-const rootReducer = combineReducers({ user: userReducer, }); // persist user and persist cart 
+const rootReducer = combineReducers({ user: userReducer, product: productReducer }); // persist user and persist cart and products 
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
