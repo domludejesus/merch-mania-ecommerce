@@ -1,4 +1,4 @@
-import { BarChartOutlined, BusinessCenterOutlined, FeedbackOutlined, LineStyle, MailOutlineOutlined, Money, PersonOutline, QuestionAnswerOutlined, StorefrontOutlined, Timeline, TrendingUp } from "@material-ui/icons"
+import { BusinessCenterOutlined, LineStyle, MailOutlineOutlined, PersonOutline, QuestionAnswerOutlined, StorefrontOutlined, Timeline} from "@material-ui/icons"
 import { Link } from "react-router-dom"
 import "./sidebar.css"
 
@@ -15,14 +15,6 @@ const Sidebar = () => {
                         Home
                     </li>
                     </Link>
-                    <li className="sidebarListItem"> 
-                        <Timeline className="sidebarIcon"/>
-                        Analytics
-                    </li>
-                    <li className="sidebarListItem"> 
-                        <TrendingUp className="sidebarIcon"/>
-                        Sales
-                    </li>
                 </ul>
             </div>
               <div className="sidebarMenu">
@@ -40,14 +32,6 @@ const Sidebar = () => {
                           Products
                       </li>
                     </Link>
-                      <li className="sidebarListItem">
-                          <Money className="sidebarIcon" />
-                          Transactions
-                      </li>
-                      <li className="sidebarListItem">
-                          <BarChartOutlined className="sidebarIcon" />
-                          Reports
-                      </li>
                   </ul>
               </div>
               <div className="sidebarMenu">
@@ -61,10 +45,6 @@ const Sidebar = () => {
                           <Timeline className="sidebarIcon" />
                           Analytics
                       </li>
-                      <li className="sidebarListItem">
-                          <BarChartOutlined className="sidebarIcon" />
-                          Reports
-                      </li>
                   </ul>
               </div>
               <div className="sidebarMenu">
@@ -73,10 +53,6 @@ const Sidebar = () => {
                     <li className="sidebarListItem"> 
                         <MailOutlineOutlined className="sidebarIcon"/>
                         Mail
-                    </li>
-                    <li className="sidebarListItem"> 
-                        <FeedbackOutlined className="sidebarIcon"/>
-                        Feedback
                     </li>
                     <li className="sidebarListItem"> 
                         <QuestionAnswerOutlined className="sidebarIcon"/>

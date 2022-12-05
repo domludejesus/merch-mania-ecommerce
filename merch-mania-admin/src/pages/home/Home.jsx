@@ -43,7 +43,7 @@ export default function Home() {
         getStats(); 
     },[MONTHS]); 
 
-    console.log(userStats) //change userStats to userData if token continues to not work 
+    console.log(userStats) //change userStats to userData if token continues to not work line 50 
     return (
         <div className="home">
             <FeaturedInfo/>

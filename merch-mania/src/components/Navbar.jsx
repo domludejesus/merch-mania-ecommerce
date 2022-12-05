@@ -48,7 +48,9 @@ const Center = styled.div`
 const Logo = styled.h1`
     font-weight: bold;
     ${mobile({ fontSize: "24px" })}
+    
 `;
+
 
 const Right = styled.div`
     flex: 1; 
@@ -78,10 +80,17 @@ const Navbar = () => {
                     <Search style={{color:"red", fontSize: 20}}/>
                 </SearchContainer>
             </Left>
-            <Center> <Logo> Merch Mania </Logo> </Center>
+            <Center> 
+                    <Logo> Merch Mania </Logo> 
+                
+            </Center>
             <Right> 
+                <Link to ="/register">
                 <MenuItem> Register</MenuItem>
+                </Link>
+                <Link to ="/login">
                 <MenuItem> Login </MenuItem>
+                </Link>
                 <Link to ="/cart"> 
                     <MenuItem>
                         <Badge badgeContent={quantity} color="primary">

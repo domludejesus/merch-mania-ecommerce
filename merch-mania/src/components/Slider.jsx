@@ -39,8 +39,8 @@ const Wrapper = styled.div`
     transform: translateX(${(props) => props.slideIndex * -100}vw); 
 
 `
-{/* passing props for slide index to shift content on x axis */ }
-{/* translating onto the X axis */}
+/* passing props for slide index to shift content on x axis 
+translating onto the X axis */
 const Slide = styled.div`
     width: 100vw;
     height: 100vh;
@@ -83,7 +83,7 @@ const Slider = () => {
             if(direction==="left") {
                 setSlideIndex(slideIndex > 0 ? slideIndex-1 : 2);  /* if slide index greater then 0 then -1 and go to slide 2*/
             } else {
-                setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0 ); {/* if slide index less then 2 then +1 and go to slide 0*/}
+                setSlideIndex(slideIndex < 2 ? slideIndex +1 : 0 ); /* if slide index less then 2 then +1 and go to slide 0*/
             }
         }; 
   return (

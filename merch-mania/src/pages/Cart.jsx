@@ -9,6 +9,7 @@ import StripeCheckout  from "react-stripe-checkout"
 import { useState, useEffect } from "react";
 import { userRequest } from "../requestMethods";
 import { useNavigate } from "react-router"; 
+import { Link } from "react-router-dom";
 
 
 const KEY = "pk_test_51M8pjxAPGjBMLo14jL7BsV9qurPR4JdgAslFjxnctxjnFiRtmnTcBzd7Cd68iQaUTdHtw54guLzjoq6H7yWnI4sb00LJ0jpCEN"  //process.env.REACT_APP_STRIPE; not working with legacy version 
@@ -47,6 +48,7 @@ const TopText = styled.span`
     text-direction: underline; 
     cursor: pointer; 
     margin: 0px 10px; 
+    color: #000000; 
 `
 const Bottom = styled.div`
     display: flex;
@@ -187,12 +189,13 @@ const Cart = () => {
         <Wrapper>
             <Title> Your Bag </Title>
             <Top>
+                <Link to="/">
                 <TopButton> CONTINUE SHOPPING</TopButton>
+                </Link>
                 <TopTexts>
                     <TopText>Shopping Bag(2) </TopText> 
                     <TopText>Your Wishlist (0) </TopText>     
-                </TopTexts> 
-                <TopButton type="filled"> CHECKOUT NOW </TopButton>      
+                </TopTexts>     
             </Top>
             <Bottom>
                 <Info> 
@@ -209,9 +212,9 @@ const Cart = () => {
                         </ProductDetail>
                         <PriceDetail> 
                             <ProductAmountContainer>
-                                <Add />
+                                <Remove /> 
                                 <ProductAmount> {product.quantity} </ProductAmount>
-                                <Remove />    
+                                <Add />   
                             </ProductAmountContainer>
                             <ProductPrice>$ {product.price*product.quantity} </ProductPrice>    
                         </PriceDetail> 

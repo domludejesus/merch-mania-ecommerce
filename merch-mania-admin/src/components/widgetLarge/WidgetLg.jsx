@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { userRequest } from "../../requestMethods";
 import "./widgetLg.css"
-import { format } from "timeago.js" // timeago causing issues with errors 
+//import timeago from "timeago.js" // timeago causing issues with errors 
+//import TimeAgo from "timeago-react" // generating unknown error but working correctly 
 
 export default function WidgetLg() {
     const [orders, setOrders] = useState([])
@@ -44,7 +45,7 @@ export default function WidgetLg() {
                     />
                     <span className="widgetLgName"> {order.userId} </span>
                 </td>
-                <td className="widgetLgDate"> {format(order.createdAt)}</td>
+                <td className="widgetLgDate"> {order.createdAt}</td> 
                 <td className="widgetLgAmount">$ {order.amount} </td>
                 <td className="widgetLgStatus"> <Button type={order.status} /></td>
 
@@ -55,3 +56,6 @@ export default function WidgetLg() {
     </div>
   )
 }
+
+
+//<TimeAgo datetime={order.createdAt} too many errors to show 

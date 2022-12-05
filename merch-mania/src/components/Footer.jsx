@@ -67,7 +67,8 @@ const ContactItem = styled.div`
 `
 
 const Payment = styled.img`
-    width: 50%; 
+    height: 150px; 
+    width: 150px;  
 
 
 `
@@ -122,7 +123,7 @@ const Footer = () => {
             <ContactItem> 
                 <MailOutline style={{ marginRight: "10px" }} /> domludejesus@gmail.com 
             </ContactItem> 
-            <Payment src="../../../assets/payment-image.png" />
+            <Payment src="https://upload.wikimedia.org/wikipedia/commons/4/46/Font_Awesome_5_brands_stripe.svg" />
             
           </Right>
         </Container>
