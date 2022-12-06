@@ -42,7 +42,7 @@ router.post("/login", async (req, res) => {
             isAdmin: user.isAdmin, 
         }, 
             process.env.JWT_SEC, 
-            {expiresIn: "4d"}
+            {expiresIn: "30d"}
         ); 
 
         const { password, ...others } = user._doc; // since mongo db document database is how our storage works we need to install this correctly              
