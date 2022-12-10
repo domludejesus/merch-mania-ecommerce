@@ -11,7 +11,7 @@ RUN yarn install
 COPY . .
 
 # Expose the port on which the server will run
-EXPOSE 3000
+EXPOSE 3001
 
 # Run the server
 CMD ["yarn", "start"]
